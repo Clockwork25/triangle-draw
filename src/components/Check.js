@@ -18,9 +18,6 @@ function Check (sideA,sideB,sideC) {
     }else{
         return console.log("Not possible")
     }
-    
 }
-
-
 
 export default Check;

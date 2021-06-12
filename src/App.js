@@ -4,9 +4,8 @@ function App() {
   return (
     <div>
       <h1>Triangle</h1>
-
       <Form/>
-      <h2 id="answer">aaa</h2>
+      <div id="answer"></div>
     </div>
   );
 }

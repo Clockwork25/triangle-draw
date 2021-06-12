@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Check from "./Check";
 
 class Form extends Component {
   constructor(props) {
@@ -28,7 +29,8 @@ class Form extends Component {
   };
 
   handleCalcButton = (event) => {
-    alert(`${this.state.sideA} ${this.state.sideB} ${this.state.sideC}`);
+    const sidesCheck = Check(`${this.state.sideA} ${this.state.sideB} ${this.state.sideC}`);
+
     event.preventDefault();
   };
 
