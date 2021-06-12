@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Check from "./Check";
 
 class Form extends Component {
   constructor(props) {
@@ -9,6 +8,7 @@ class Form extends Component {
       sideA: "",
       sideB: "",
       sideC: "",
+      triangleAnswer:"",
     };
   }
 
@@ -29,12 +29,32 @@ class Form extends Component {
   };
 
   handleCalcButton = (event) => {
-    const a_conv = parseFloat(this.state.sideA)
-    const b_conv = parseFloat(this.state.sideB)
-    const c_conv = parseFloat(this.state.sideC)
+    const a = parseFloat(this.state.sideA)
+    const b = parseFloat(this.state.sideB)
+    const c = parseFloat(this.state.sideC)
     console.log(`${this.state.sideA} ${this.state.sideB} ${this.state.sideC}`);
-
-    <Check sideA_num={a_conv} sideB_num={b_conv} sideC_num={c_conv} />
+    
+    
+        if (a+b > c || a+c>b || b+c>a){
+    
+            if (a===b || b===c || a===c){
+                this.setState({
+                  triangleAnswer:"Isosceles"
+                })
+            }else if(a===b===c){
+                this.setState({
+                  triangleAnswer: "Equilateral"
+                })
+            }else if (a!==b && b!==c && a!==c){
+              this.setState({
+                triangleAnswer: "Scalene"
+              })
+            }
+        }else{
+          this.setState({
+            triangleAnswer: "Not Possible"
+          })
+        }
     event.preventDefault();
   };
 
@@ -75,6 +95,10 @@ class Form extends Component {
           </div>
           <button>Calculate</button>
         </form>
+
+        <div>
+          The triangle is: {this.state.triangleAnswer}
+        </div>
       </div>
     );
   }
