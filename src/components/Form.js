@@ -29,8 +29,12 @@ class Form extends Component {
   };
 
   handleCalcButton = (event) => {
-    const sidesCheck = Check(`${this.state.sideA} ${this.state.sideB} ${this.state.sideC}`);
+    const a_conv = parseFloat(this.state.sideA)
+    const b_conv = parseFloat(this.state.sideB)
+    const c_conv = parseFloat(this.state.sideC)
+    console.log(`${this.state.sideA} ${this.state.sideB} ${this.state.sideC}`);
 
+    <Check sideA_num={a_conv} sideB_num={b_conv} sideC_num={c_conv} />
     event.preventDefault();
   };
 
@@ -40,7 +44,7 @@ class Form extends Component {
       <div>
         <form onSubmit={this.handleCalcButton}>
           <div className="inputFields">
-            <label for="a">side a</label>
+            <label htmlFor="a">side a</label>
             <input
               id="a"
               name="sideA"
@@ -50,7 +54,7 @@ class Form extends Component {
             />
           </div>
           <div>
-            <label for="b">side b</label>
+            <label htmlFor="b">side b</label>
             <input
               id="b"
               name="sideB"
@@ -60,7 +64,7 @@ class Form extends Component {
             />
           </div>
           <div>
-            <label for="c">side c</label>
+            <label htmlFor="c">side c</label>
             <input
               id="c"
               name="sideC"

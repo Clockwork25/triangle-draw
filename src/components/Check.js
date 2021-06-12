@@ -1,23 +1,40 @@
-function Check (sideA,sideB,sideC) {
-    const a = parseFloat(sideA)
-    const b = parseFloat(sideB)
-    const c = parseFloat(sideC)
+import React, { Component } from "react";
 
-    if (a+b > c || a+c>b || b+c>a){
 
-        if (a==b || b==c || a==c){
-            return console.log("Isosceles")
+
+class Check extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            a: {sideA_num}
         }
-    
-        if (a==b==c){
-            return console.log("equilateral")
-        }
-        if (a!==b && b!==c && a!==c){
-            return console.log("scalene")
-        }
-    }else{
-        return console.log("Not possible")
     }
-}
+    render(){
+        var a = this.props.sideA_num;
+        var b = this.props.sideB_num;
+        var c = this.props.sideC_num;
+        let triangleAnswer;
+    
+        if (a+b > c || a+c>b || b+c>a){
+    
+            if (a===b || b===c || a===c){
+                triangleAnswer = "Isosceles";
+            }else if(a===b===c){
+                triangleAnswer = "Equilateral";
+            }else if (a!==b && b!==c && a!==c){
+                triangleAnswer = "Scalene";
+            }
+        }else{
+            triangleAnswer = "Not Possible";
+        } 
+                return (
+            <div>
+                <p>The triangle is: {triangleAnswer}</p>
+            </div>
+            );
+    };
+};
+
+
 
 export default Check;
