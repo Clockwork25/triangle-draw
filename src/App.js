@@ -5,7 +5,7 @@ function App() {
     <div>
       <h1>Triangle</h1>
       <Form/>
-      <div id="answer">aaa</div>
+      <div id="answer"></div>
     </div>
   );
 }
