@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./Form.css"; 
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -39,20 +39,20 @@ class Form extends Component {
     
             if ((a===b && b!==c) || (b===c && c!==a ) || (a===c && c!==b)){
                 this.setState({
-                  triangleAnswer:"Isosceles"
+                  triangleAnswer:"Isosceles triangle"
                 })
             }else if(a===b && b===c && a===c){
                 this.setState({
-                  triangleAnswer: "Equilateral"
+                  triangleAnswer: "Equilateral triangle"
                 })
             }else if (a!==b && b!==c && a!==c){
               this.setState({
-                triangleAnswer: "Scalene"
+                triangleAnswer: "Scalene triangle"
               })
             }
         }else{
           this.setState({
-            triangleAnswer: "Not Possible"
+            triangleAnswer: "Triangle not possible"
           })
         }
     event.preventDefault();
@@ -61,44 +61,48 @@ class Form extends Component {
   render() {
     const { sideA, sideB, sideC } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleCalcButton}>
-          <div className="inputFields">
-            <label htmlFor="a">side a</label>
+      <div id="interactive">
+        <div id="answerWindow">
+          <div id="answerDrawing">Triangle drawing</div>
+          <br/>
+          <div id="answerText">The triangle is: {this.state.triangleAnswer}</div>
+        </div>
+        <form onSubmit={this.handleCalcButton} >
+          <div className="formFields">
+            <label htmlFor="a" >A side</label>
             <input
-              id="a"
+            id="a"
+              className="field"
               name="sideA"
               type="text"
               value={sideA}
               onChange={this.handleSideAChange}
             />
           </div>
-          <div>
-            <label htmlFor="b">side b</label>
+          <div className="formFields">
+            <label htmlFor="b">B side</label>
             <input
               id="b"
+              className="field"
               name="sideB"
               type="text"
               value={sideB}
               onChange={this.handleSideBChange}
             />
           </div>
-          <div>
-            <label htmlFor="c">side c</label>
+          <div className="formFields">
+            <label htmlFor="c">C side</label>
             <input
               id="c"
+              className="field"
               name="sideC"
               type="text"
               value={sideC}
               onChange={this.handleSideCChange}
             />
           </div>
-          <button>Calculate</button>
+          <button id="button">Calculate</button>
         </form>
-
-        <div>
-          The triangle is: {this.state.triangleAnswer}
-        </div>
       </div>
     );
   }

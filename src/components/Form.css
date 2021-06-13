@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap');
+/*
+ CSS rules to specify families
+
+    font-family: 'Roboto', sans-serif;
+*/
+
+#interactive {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr;
+    border-style: solid;
+    border-color: rgb(83, 83, 83);
+    border-radius: 10px;
+    border-width: 1px;
+    padding: 5%;
+}
+
+#answerWindow{
+    border-style: solid;
+    border-color: rgb(83, 83, 83);
+    border-radius: 10px;
+    border-width: 1px;
+    padding: 5%;
+}
+
+#answerDrawing{
+    align-self: center;
+    position:absolute;
+    left:50%;
+}
+
+#answerText{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: large;
+}
+
+.formFields{
+    left: 20px;
+    padding: 5px;
+}
