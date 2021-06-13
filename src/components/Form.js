@@ -61,15 +61,15 @@ class Form extends Component {
   render() {
     const { sideA, sideB, sideC } = this.state;
     return (
-      <div id="interactive">
+      <div className="interactive">
         <div id="answerWindow">
-          <div id="answerDrawing">Triangle drawing</div>
+          <div id="answerDrawing"></div>
           <br/>
-          <div id="answerText">The triangle is: {this.state.triangleAnswer}</div>
+          <div id="answerText">{this.state.triangleAnswer}</div>
         </div>
-        <form onSubmit={this.handleCalcButton} >
+        <form onSubmit={this.handleCalcButton} id="formFieldsWrapper">
           <div className="formFields">
-            <label htmlFor="a" >A side</label>
+            <label htmlFor="a" className="label">A side</label>
             <input
             id="a"
               className="field"
@@ -80,7 +80,7 @@ class Form extends Component {
             />
           </div>
           <div className="formFields">
-            <label htmlFor="b">B side</label>
+            <label htmlFor="b" className="label">B side</label>
             <input
               id="b"
               className="field"
@@ -91,7 +91,7 @@ class Form extends Component {
             />
           </div>
           <div className="formFields">
-            <label htmlFor="c">C side</label>
+            <label htmlFor="c" className="label">C side</label>
             <input
               id="c"
               className="field"

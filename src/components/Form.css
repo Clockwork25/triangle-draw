@@ -5,7 +5,12 @@
     font-family: 'Roboto', sans-serif;
 */
 
-#interactive {
+.interactive {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width:300px;
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	grid-template-columns: 1fr;
@@ -13,21 +18,26 @@
     border-color: rgb(83, 83, 83);
     border-radius: 10px;
     border-width: 1px;
-    padding: 5%;
+    padding: 10px 10px;
 }
 
 #answerWindow{
     border-style: solid;
     border-color: rgb(83, 83, 83);
-    border-radius: 10px;
     border-width: 1px;
     padding: 5%;
+    margin:5%;
+    height:200px;
+    background-position: center;
+    background-size: 6px 6px;
+    background-image:
+    linear-gradient(to right, grey 0.5px, transparent 1px),
+    linear-gradient(to bottom, grey 0.5px, transparent 1px);
 }
 
 #answerDrawing{
-    align-self: center;
-    position:absolute;
-    left:50%;
+    height:200px;
+    width:200px;
 }
 
 #answerText{
@@ -37,7 +47,45 @@
     font-size: large;
 }
 
+#formFieldsWrapper {
+    padding:20px;
+}
+
 .formFields{
-    left: 20px;
-    padding: 5px;
+    padding: 20px 0;
+}
+
+.field {
+    top:0;
+    left:0;
+    width:40%;
+    height: 100%;
+    border: 1px solid;
+    border-radius: .2rem;
+    outline: none;
+    padding:1rem;
+    z-index:1;
+}
+
+.label  {
+    position:relative;
+    background-color: white;
+    left:3rem;
+    top:-1.5rem;
+}
+
+#button {
+    display:block;
+    padding: 1rem 1rem;
+    outline:none;
+    border: none;
+    background-color: rgb(58, 58, 58);
+    color:white;
+    font-size:12pt;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+#button:hover{
+    box-shadow:0 10px 20px rgb(58, 58, 58, 0.5);
 }
