@@ -10,9 +10,9 @@ class Form extends Component {
       sideB: "",
       sideC: "",
       triangleAnswer: "",
-      a:0.0,
-      b:0.0,
-      c:0.0,
+      a: 0.0,
+      b: 0.0,
+      c: 0.0,
     };
   }
 
@@ -33,9 +33,9 @@ class Form extends Component {
   };
 
   handleCalcButton = (event) => {
-    const a = parseFloat(this.state.sideA);
-    const b = parseFloat(this.state.sideB);
-    const c = parseFloat(this.state.sideC);
+    const a = this.state.sideA;
+    const b = this.state.sideB;
+    const c = this.state.sideC;
 
     this.setState({
       a: event.target.value,
@@ -45,11 +45,29 @@ class Form extends Component {
 
     console.log(`${this.state.sideA} ${this.state.sideB} ${this.state.sideC}`);
 
-    if ((a + b > c || a + c > b || b + c > a) && a > 0 && b > 0 && c > 0) {
+    if((a==b && b==c && a==c) && (!(a + b <= c || a + c <= b || b + c <= a))){
+      this.setState({
+        triangleAnswer: "Triangle is equilateral",
+      });
+    } else if ((a !== b && b !== c && a !== c) && (a + b <= c || a + c <= b || b + c <= a) ) {
+      this.setState({
+        triangleAnswer: "Triangle is scalene",
+      });
+    } else if ((a==b || b==c || a==c) && !(a + b <= c || a + c <= b || b + c <= a)){
+      this.setState({
+        triangleAnswer: "Triangle is isosceles",
+      });
+    } else {
+      this.setState({
+        triangleAnswer: "Is not possible to calculate this kind of triangle",
+      });
+    }
+
+{/* if ((a + b <= c || a + c <= b || b + c <= a) && !(a==b || b==c || a==c)) {
       if (
-        (a === b && b !== c) ||
-        (b === c && c !== a) ||
-        (a === c && c !== b)
+        (a == b && b !== c) ||
+        (b == c && c !== a) ||
+        (a == c && c !== b)
       ) {
         this.setState({
           triangleAnswer: "Triangle is isosceles",
@@ -67,7 +85,7 @@ class Form extends Component {
       this.setState({
         triangleAnswer: "Is not possible to calculate this kind of triangle",
       });
-    }
+    }*/}   
     event.preventDefault();
   };
 
@@ -76,53 +94,58 @@ class Form extends Component {
     return (
       <div className="interactive">
         <div id="answerWindow">
-          <div id="answerTriangle">
-          </div>
+          <div id="answerTriangle"></div>
           <div id="answerText">{this.state.triangleAnswer}</div>
         </div>
         <div>
-        <form onSubmit={this.handleCalcButton}>
-          <div className="formFields">
-            <label htmlFor="a" className="label">
-              A side
-            </label>
-            <input
-              id="a"
-              className="field"
-              name="sideA"
-              type="text"npm
-              value={sideA}
-              onChange={this.handleSideAChange}
-            />
-          </div>
-          <div className="formFields">
-            <label htmlFor="b" className="label">
-              B side
-            </label>
-            <input
-              id="b"
-              className="field"
-              name="sideB"
-              type="text"
-              value={sideB}
-              onChange={this.handleSideBChange}
-            />
-          </div>
-          <div className="formFields">
-            <label htmlFor="c" className="label">
-              C side
-            </label>
-            <input
-              id="c"
-              className="field"
-              name="sideC"
-              type="text"
-              value={sideC}
-              onChange={this.handleSideCChange}
-            />
-          </div>
-          <button id="button">Calculate</button>
-        </form>
+          <form onSubmit={this.handleCalcButton}>
+            <div className="formFields">
+              <label htmlFor="a" className="label">
+                A side
+              </label>
+              <input
+                id="a"
+                className="field"
+                name="sideA"
+                type="number"
+                value={sideA}
+                min="0"
+                max="2147483647"
+                onChange={this.handleSideAChange}
+              />
+            </div>
+            <div className="formFields">
+              <label htmlFor="b" className="label">
+                B side
+              </label>
+              <input
+                id="b"
+                className="field"
+                name="sideB"
+                type="number"
+                value={sideB}
+                min="0"
+                max="2147483647"
+                onChange={this.handleSideBChange}
+              />
+            </div>
+            <div className="formFields">
+              <label htmlFor="c" className="label">
+                C side
+              </label>
+              <input
+                id="c"
+                className="field"
+                name="sideC"
+                type="number"
+                value={sideC}
+                min="0"
+                max="2147483647"
+                onChange={this.handleSideCChange}
+              />
+            </div>
+            <button id="button">Calculate</button>
+          </form>
         </div>
       </div>
     );
