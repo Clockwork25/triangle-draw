@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./Form.css"; 
+import "./Form.css";
+
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +9,10 @@ class Form extends Component {
       sideA: "",
       sideB: "",
       sideC: "",
-      triangleAnswer:"",
+      triangleAnswer: "",
+      a:0.0,
+      b:0.0,
+      c:0.0,
     };
   }
 
@@ -29,32 +33,41 @@ class Form extends Component {
   };
 
   handleCalcButton = (event) => {
-    const a = parseFloat(this.state.sideA)
-    const b = parseFloat(this.state.sideB)
-    const c = parseFloat(this.state.sideC)
+    const a = parseFloat(this.state.sideA);
+    const b = parseFloat(this.state.sideB);
+    const c = parseFloat(this.state.sideC);
+
+    this.setState({
+      a: event.target.value,
+      b: event.target.value,
+      c: event.target.value,
+    });
+
     console.log(`${this.state.sideA} ${this.state.sideB} ${this.state.sideC}`);
-    
-    
-        if ((a+b > c || a+c>b || b+c>a) && (a>0 && b>0 && c>0)){
-    
-            if ((a===b && b!==c) || (b===c && c!==a ) || (a===c && c!==b)){
-                this.setState({
-                  triangleAnswer:"Isosceles triangle"
-                })
-            }else if(a===b && b===c && a===c){
-                this.setState({
-                  triangleAnswer: "Equilateral triangle"
-                })
-            }else if (a!==b && b!==c && a!==c){
-              this.setState({
-                triangleAnswer: "Scalene triangle"
-              })
-            }
-        }else{
-          this.setState({
-            triangleAnswer: "Triangle not possible"
-          })
-        }
+
+    if ((a + b > c || a + c > b || b + c > a) && a > 0 && b > 0 && c > 0) {
+      if (
+        (a === b && b !== c) ||
+        (b === c && c !== a) ||
+        (a === c && c !== b)
+      ) {
+        this.setState({
+          triangleAnswer: "Isosceles triangle",
+        });
+      } else if (a === b && b === c && a === c) {
+        this.setState({
+          triangleAnswer: "Equilateral triangle",
+        });
+      } else if (a !== b && b !== c && a !== c) {
+        this.setState({
+          triangleAnswer: "Scalene triangle",
+        });
+      }
+    } else {
+      this.setState({
+        triangleAnswer: "Triangle not possible",
+      });
+    }
     event.preventDefault();
   };
 
@@ -63,24 +76,29 @@ class Form extends Component {
     return (
       <div className="interactive">
         <div id="answerWindow">
-          <div id="answerDrawing"></div>
-          <br/>
+          <div id="answerTriangle">
+          </div>
+          <br />
           <div id="answerText">{this.state.triangleAnswer}</div>
         </div>
         <form onSubmit={this.handleCalcButton} id="formFieldsWrapper">
           <div className="formFields">
-            <label htmlFor="a" className="label">A side</label>
+            <label htmlFor="a" className="label">
+              A side
+            </label>
             <input
-            id="a"
+              id="a"
               className="field"
               name="sideA"
-              type="text"
+              type="text"npm
               value={sideA}
               onChange={this.handleSideAChange}
             />
           </div>
           <div className="formFields">
-            <label htmlFor="b" className="label">B side</label>
+            <label htmlFor="b" className="label">
+              B side
+            </label>
             <input
               id="b"
               className="field"
@@ -91,7 +109,9 @@ class Form extends Component {
             />
           </div>
           <div className="formFields">
-            <label htmlFor="c" className="label">C side</label>
+            <label htmlFor="c" className="label">
+              C side
+            </label>
             <input
               id="c"
               className="field"
