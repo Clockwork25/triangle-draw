@@ -1,94 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap");
 /*
  CSS rules to specify families
-
-    font-family: 'Roboto', sans-serif;
+ font-family: 'Roboto', sans-serif;
 */
 
 .interactive {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
-    width:300px;
-	display: grid;
-	grid-template-rows: 1fr 1fr;
-	grid-template-columns: 1fr;
-    border-style: solid;
-    border-color: rgb(83, 83, 83);
-    border-radius: 10px;
-    border-width: 1px;
-    padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  width: 300px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  border-style: solid;
+  border-color: rgb(83, 83, 83);
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 10px 10px;
+  background-color: white;
 }
 
-#answerWindow{
-    border-style: solid;
-    border-color: rgb(83, 83, 83);
-    border-width: 1px;
-    padding: 5%;
-    margin:5%;
-    height:200px;
-    background-position: center;
-    background-size: 6px 6px;
-    background-image:
-    linear-gradient(to right, grey 0.5px, transparent 1px),
+#answerWindow {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  border-style: solid;
+  border-color: rgb(83, 83, 83);
+  border-width: 1px;
+  padding: 5%;
+  margin: 5%;
+  height: 200px;
+  background-position: center;
+  background-size: 6px 6px;
+  background-image: linear-gradient(to right, grey 0.5px, transparent 1px),
     linear-gradient(to bottom, grey 0.5px, transparent 1px);
 }
 
-
-#answerTriangleCanvas{
-    height:180px;
-    width:200px;
+#answerTriangleCanvas {
+  height: 180px;
+  width: 200px;
 }
 
-#answerText{
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: large;
+#answerText {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: large;
 }
 
-#formFieldsWrapper {
-    padding:20px;
-}
-
-.formFields{
-    padding: 20px 0;
+.formFields {
+  padding: 15px 0;
 }
 
 .field {
-    top:0;
-    left:0;
-    width:40%;
-    height: 100%;
-    border: 1px solid;
-    border-radius: .2rem;
-    outline: none;
-    padding:1rem;
-    z-index:1;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  border: 1px solid;
+  border-radius: 0.2rem;
+  outline: none;
+  padding: 1rem;
+  z-index: 1;
 }
 
-.label  {
-    position:relative;
-    background-color: white;
-    left:3rem;
-    top:-1.5rem;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+.label {
+  position: relative;
+  background-color: white;
+  left: 3rem;
+  top: -1.5rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 
 #button {
-    display:block;
-    padding: 1rem 1rem;
-    outline:none;
-    border: none;
-    background-color: rgb(58, 58, 58);
-    color:white;
-    font-size:12pt;
-    border-radius: 0.2rem;
-    cursor: pointer;
+  display: block;
+  padding: 1rem 1rem;
+  outline: none;
+  border: none;
+  background-color: rgb(58, 58, 58);
+  color: white;
+  font-size: 12pt;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  margin-left: 45px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 
-#button:hover{
-    box-shadow:0 10px 20px rgb(58, 58, 58, 0.5);
+#button:hover {
+  box-shadow: 0 10px 20px rgb(58, 58, 58, 0.5);
 }

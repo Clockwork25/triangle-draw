@@ -78,10 +78,10 @@ class Form extends Component {
         <div id="answerWindow">
           <div id="answerTriangle">
           </div>
-          <br />
           <div id="answerText">{this.state.triangleAnswer}</div>
         </div>
-        <form onSubmit={this.handleCalcButton} id="formFieldsWrapper">
+        <div>
+        <form onSubmit={this.handleCalcButton}>
           <div className="formFields">
             <label htmlFor="a" className="label">
               A side
@@ -123,6 +123,7 @@ class Form extends Component {
           </div>
           <button id="button">Calculate</button>
         </form>
+        </div>
       </div>
     );
   }
