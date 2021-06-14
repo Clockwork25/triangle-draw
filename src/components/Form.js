@@ -52,20 +52,20 @@ class Form extends Component {
         (a === c && c !== b)
       ) {
         this.setState({
-          triangleAnswer: "Isosceles triangle",
+          triangleAnswer: "Triangle is isosceles",
         });
       } else if (a === b && b === c && a === c) {
         this.setState({
-          triangleAnswer: "Equilateral triangle",
+          triangleAnswer: "Triangle is equilateral",
         });
       } else if (a !== b && b !== c && a !== c) {
         this.setState({
-          triangleAnswer: "Scalene triangle",
+          triangleAnswer: "Triangle is scalene",
         });
       }
     } else {
       this.setState({
-        triangleAnswer: "Triangle not possible",
+        triangleAnswer: "Is not possible to calculate this kind of triangle",
       });
     }
     event.preventDefault();
